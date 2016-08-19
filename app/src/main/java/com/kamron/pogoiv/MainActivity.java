@@ -53,11 +53,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class MainActivity extends AppCompatActivity {
+
     private static final String TAG = "MainActivity";
 
     private static final int OVERLAY_PERMISSION_REQ_CODE = 1234;
@@ -280,7 +282,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         tesseract = new TessBaseAPI();
-        tesseract.init(getExternalFilesDir(null) + "", "eng");
+        String iso3Language = Locale.getDefault().getISO3Language();
+        if (!"eng".equals(iso3Language)) {
+            iso3Language = "eng+" + iso3Language;
+        }
+        tesseract.init(getExternalFilesDir(null) + "", iso3Language);
         tesseract.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/♀♂");
         tessInitiated = true;
     }
