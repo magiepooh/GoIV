@@ -287,7 +287,7 @@ public class MainActivity extends AppCompatActivity {
             iso3Language = "eng+" + iso3Language;
         }
         tesseract.init(getExternalFilesDir(null) + "", iso3Language);
-        tesseract.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/♀♂");
+        tesseract.setVariable(TessBaseAPI.VAR_CHAR_WHITELIST, "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤヰユヱヨラリルレロワヲンガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポァィゥェォャュョッヮヴABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/♀♂");
         tessInitiated = true;
     }
 
